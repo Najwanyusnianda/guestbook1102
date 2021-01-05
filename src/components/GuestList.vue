@@ -1,16 +1,16 @@
 <template>
-    <div class="w-2/3 mx-auto">
-<div class="bg-white shadow-md rounded my-5">
-    <table class="w-full text-left">
-        <thead>
-            <tr class="bg-gray-50" >
-                <th class="text-gray-600 py-4 px-6 border-light-gray  border-2 font-bold ">
+    <div class="w-2/3 mx-auto rounded-lg">
+<div class="bg-white shadow-md  my-5">
+    <table class="min-w-full overflow-x-scroll divide-y divide-gray-200">
+        <thead class="bg-gray-50 ">
+            <tr class="" >
+                <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">
                     Nama Lengkap
                 </th>
-                <th class="py-4 px-6 border-light-grey  border-2 font-bold ">
+                <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase ">
                     Instansti
                 </th>
-                <th class="py-4 px-6 border-light-grey  border-2 font-bold ">
+                <th class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase ">
                     Status
                 </th>
             </tr>
