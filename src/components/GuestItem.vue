@@ -11,9 +11,9 @@
         <td>
             <a href="#" class="pr-6 py-2 mx-2 text-xs font-medium leading-6 text-center text-white transition bg-blue-500 rounded shadow ripple hover:shadow-lg hover:bg-blue-800 focus:outline-none">     
                   <span class="pl-4 pr-1">
-<font-awesome-icon :icon="icons.faPencilAlt" size="1x"  />
+                    <font-awesome-icon :icon="icons.faPencilAlt" size="1x"  />
                   </span>
-                  Edit
+                    Edit
             </a>
             <a href="#" class="px-6 py-2 text-xs font-medium leading-6 text-center text-white transition bg-blue-700 rounded shadow ripple hover:shadow-lg hover:bg-blue-800 focus:outline-none">View</a>
         </td>
