@@ -6,13 +6,32 @@
   <router-view/>
 </template>
 
+<script>
+export default {
+
+}
+</script>
+
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Chivo:wght@300&family=Lora&family=Montserrat:wght@300;500&display=swap');
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+
+  font-family: 'Montserrat','Chivo','Lora' sans-serif;
+  /*font-family: Avenir, Helvetica, Arial, sans-serif;*/
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  
   color: #2c3e50;
+}
+
+body {
+ font-family: 'Chivo', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+ font-family: 'Montserrat', sans-serif;
+ font-weight: 300;
+ text-transform: uppercase;
 }
 
 #nav {
