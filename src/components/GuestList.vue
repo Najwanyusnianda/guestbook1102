@@ -13,7 +13,10 @@
             </div>
         </section>
 
-        <modal :showModal="showModal"></modal>
+        <modal :showModal="showModal" v-on:closeModal="closeModal" :steps="step" v-on:nextStep="nextStepping">
+
+            <guest-form :steps="step"/>
+        </modal>
         <section class=" min-w-full">
             <div class="bg-white md:w-2/3  mx-auto my-5 px-1  py-4 rounded-lg overflow-x-auto h-screen ">
 
@@ -53,8 +56,11 @@
 </template>
 
 <script>
-    import GuestItem from '../components/GuestItem'
-    import Modal from '../components/Modal'
+    import GuestItem from '../components/GuestItem';
+    import Modal from '../components/Modal';
+    import GuestForm from '../components/GuestForm';
+
+    //import fontawesome icon
     import {
         FontAwesomeIcon
     } from '@fortawesome/vue-fontawesome'
@@ -62,18 +68,22 @@
         faUserPlus
     } from '@fortawesome/free-solid-svg-icons'
 
+
     export default {
         name: 'GuestList',
         components: {
             GuestItem,
             FontAwesomeIcon,
-            Modal
+            Modal,
+            GuestForm
+        
         },
         data() {
             return {
                 icons: {
                     faUserPlus: faUserPlus
                 },
+                step:1,
                 showModal:false,
                 customers: [{
                         id: 1,
@@ -105,6 +115,12 @@
                  this.showModal = !this.showModal
                 console.log(this.showModal)
                
+            },
+            closeModal(){
+                this.showModal= false
+            },
+            nextStepping(step){
+                this.step=step
             }
         },
         mounted(){
