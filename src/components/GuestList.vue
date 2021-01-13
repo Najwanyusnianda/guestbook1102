@@ -78,36 +78,21 @@
             GuestForm
         
         },
+        computed:{
+            customers(){
+                    return this.$store.state.customers
+                },
+            step(){
+                return this.$store.state.form_step
+            }    
+        },
         data() {
             return {
                 icons: {
                     faUserPlus: faUserPlus
                 },
-                step:1,
                 showModal:false,
-                customers: [{
-                        id: 1,
-                        nama_depan: 'Najwan',
-                        nama_belakang: ' Yusnianda',
-                        instansi: 'Badan Pusat Statistik Kabupaten Aceh Singkil',
-                        status: 'menunggu',
-
-                    },
-                    {
-                        id: 2,
-                        nama_depan: 'Najwan2',
-                        nama_belakang: ' Yusnianda',
-                        instansi: 'Badan Pusat Statistik Kabupaten Aceh Singkil',
-                        status: 'menunggu',
-                    },
-                    {
-                        id: 3,
-                        nama_depan: 'Najwan3',
-                        nama_belakang: ' Yusnianda',
-                        instansi: 'Badan Pusat Statistik Kabupaten Aceh Singkil',
-                        status: 'menunggu',
-                    }
-                ]
+ 
             }
         },
         methods: {
@@ -118,6 +103,7 @@
             },
             closeModal(){
                 this.showModal= false
+                   this.$store.commit('resetStep')
             },
             nextStepping(step){
                 this.step=step

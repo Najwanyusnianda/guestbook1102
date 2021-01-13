@@ -10,4 +10,4 @@ import router from './router'
 
 
 
-createApp(App).use(router).use(store).mount('#app')
+createApp(App).use(store).use(router).use(store).mount('#app')
