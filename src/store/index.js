@@ -31,7 +31,7 @@ export default createStore({
     },
     mutations: {
         nextStep(state) {
-            console.log(state.is_institution.toString())
+
             if (state.is_institution) {
                 switch (state.form_step) {
                     case 1:
@@ -76,8 +76,8 @@ export default createStore({
         resetStep(context) {
             context.commit('resetStep')
         },
-        changeInstitution(context, { status }) {
-            context.commit('changeInstitution', status)
+        changeInstitution({commit},data) {
+            commit('changeInstitution', data)
         }
 
     },

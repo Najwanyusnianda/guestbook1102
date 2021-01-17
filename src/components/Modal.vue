@@ -1,16 +1,21 @@
 <template>
     <div>
-        <div class="fixed overflow-x-hidden overflow-y-auto inset-0 flex justify-center items-center z-50"
+        <div class="fixed overflow-x-hidden overflow-y-auto inset-0 flex justify-center items-center z-50 "
             v-if="showModal">
-            <div class="relative mx-auto w-auto shadow-lg ">
-                <div class="bg-white  mx-auto px-4 py-5 rounded-md ">
+            <div class="md:relative  sm:w-full lg:w-1/3 lg:fixed mx-auto shadow-lg ">
+                <div class="bg-white  mx-auto px-4 py-5 rounded-md  ">
                       <slot></slot>
-                    <div class="footer flex justify-center">
+                    <div class="footer flex justify-center -mt-10">
                         <hr>
-                      
-                        <button class="px-2 py-2 mt-2 -mb-4 text-sm mr-2 text-green-500 border-1 transition duration-300 ease-in border-green-500 hover:bg-green-500 hover:text-white rounded-md focus:outline-none" @click="nextStep(steps)" v-if="steps==1"> Selanjutnya</button>
-                        <button class="px-2 py-2 mt-2 -mb-4 text-sm mr-2 text-green-500 border-1 transition duration-300 ease-in border-green-500 hover:bg-green-500 hover:text-white rounded-md focus:outline-none" @click="prevStep(steps)" v-if="steps!=1"> Sebelumnya</button>
-                        <button class="px-2 py-2 mt-2 -mb-4 text-sm ml-2 text-red-500 border-1 transition duration-300 ease-in border-red-500 hover:bg-red-500 hover:text-white rounded-md focus:outline-none"  @click="closeModal"> Tutup</button>
+                        <div class="justify-items-strecth">
+                        <button class="px-2 py-2 mt-2 -mb-4 text-sm mr-2 text-green-500 border-1 transition duration-300 ease-in border-green-500 hover:bg-green-500 hover:text-white rounded-md focus:outline-none" @click="prevStep(steps)" v-if="steps!=1"> Sebelumnya</button>                      
+                        <button class="px-2 py-2 mt-2 -mb-4 text-sm mr-2 text-green-500 border-1 transition duration-300 ease-in border-green-500 hover:bg-green-500 hover:text-white rounded-md focus:outline-none" @click="nextStep(steps)" v-if="steps!=3"> Selanjutnya</button>
+                        <button type="submit" class="px-2 py-2 mt-2 -mb-4 text-sm mr-2 text-green-500 border-1 transition duration-300 ease-in border-green-500 hover:bg-green-500 hover:text-white rounded-md focus:outline-none" v-if="steps==3"> Simpan</button>
+                        </div>
+
+                        <div class="items-">
+                                <button class="px-2 py-2 mt-2 -mb-4 text-sm ml-2 text-red-500 border-1 transition duration-300 ease-in border-red-500 hover:bg-red-500 hover:text-white rounded-md focus:outline-none"  @click="closeModal"> Tutup</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -34,9 +39,7 @@
                 required:true
             }
         },
-        data(){
 
-        },
 
         methods:{
             closeModal:function(){
