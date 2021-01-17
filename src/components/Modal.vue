@@ -44,13 +44,13 @@
             },
 
             nextStep:function(step){
-                this.$store.commit('nextStep')
+                this.$store.dispatch('nextStep')
                 //this.step=++step;
                 //console.log('step '+this.step)
                 //this.$emit('nextStep',this.step);
             },
             prevStep:function(step){
-                 this.$store.commit('prevStep')
+                 this.$store.dispatch('prevStep')
 
             }
         }

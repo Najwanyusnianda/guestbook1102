@@ -2,6 +2,7 @@ import { createStore } from 'vuex'
 
 export default createStore({
     state: {
+
         customers: [{
                 id: 1,
                 nama_depan: 'Najwan',
@@ -25,20 +26,63 @@ export default createStore({
                 status: 'menunggu',
             }
         ],
-        form_step: 1
+        form_step: 1,
+        is_institution: false
     },
     mutations: {
         nextStep(state) {
-            state.form_step++;
+            console.log(state.is_institution.toString())
+            if (state.is_institution) {
+                switch (state.form_step) {
+                    case 1:
+                        state.form_step = 2;
+                        break;
+                    case 2:
+                        state.form_step = 3;
+                }
+            } else {
+                state.form_step = 3
+            }
+
         },
         prevStep(state) {
+            if (state.is_institution) {
+                switch (state.form_step) {
+                    case 2:
+                        state.form_step = 1;
+                        break;
+                    case 3:
+                        state.form_step = 2;
+                }
+            } else {
+                state.form_step = 1
+            }
 
-            state.form_step--;
         },
         resetStep(state) {
             state.form_step = 1;
+        },
+        changeInstitution(state, status) {
+            state.is_institution = status
         }
     },
-    actions: {},
+    actions: {
+        nextStep(context) {
+            context.commit('nextStep')
+        },
+        prevStep(context) {
+            context.commit('prevStep')
+        },
+        resetStep(context) {
+            context.commit('resetStep')
+        },
+        changeInstitution(context, { status }) {
+            context.commit('changeInstitution', status)
+        }
+
+    },
+    getters: {
+
+    },
     modules: {}
 })

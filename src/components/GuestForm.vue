@@ -96,7 +96,7 @@
                 </div>
 
                 <div class="step" v-if="guest.is_institution && steps==2 " >
-                 <div class="w-full max-h-10 flex bg-gray-400 rounded py-2 px-3 text-white font-medium mt-5 "> 
+                 <div class="w-full max-h-10 flex bg-gray-400 rounded py-2 px-3 text-white font-medium  "> 
                     <span class="mx-auto font-medium tracking-wider uppercase">Identitas Segmentasi</span>
                 </div>
                 <div class="items-center">
@@ -153,6 +153,10 @@
                 required:true
             }
       },
+      computed:{
+          is_institution(){
+              return this.$store.state.is_institution}
+      },
     
         data() {
             return {
@@ -160,8 +164,8 @@
                     nama_depan: '',
                     nama_belakang: '',
                     tipe_pengunjung: '',
-                    is_institution: false,
-
+                    is_institution:false
+                
                 },
                 
 
@@ -169,11 +173,11 @@
         },
         methods: {
             guestTypeEvent(event) {
-                console.log(event.target.value);
+
                 if (this.guest.tipe_pengunjung != 5) {
-                    this.guest.is_institution = true
+                    this.$store.dispatch('changeInstitution',true)
                 } else {
-                    this.guest.is_institution = false
+                    this.$store.dispatch('changeInstitution',false)
                 }
             },
 

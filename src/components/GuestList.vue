@@ -103,7 +103,7 @@
             },
             closeModal(){
                 this.showModal= false
-                   this.$store.commit('resetStep')
+                   this.$store.dispatch('resetStep')
             },
             nextStepping(step){
                 this.step=step
